@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://c62ye77v8f2j4"]
+
+[ext_resource type="FontFile" uid="uid://cygspdwf2kce7" path="res://assets/fonts/PixelifySans-Regular.ttf" id="1_3k8ma"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_058r7"]
+load_path = "res://.godot/imported/frame1.png-e329097b7046d436d6958b0067b52222.ctex"
+
+[sub_resource type="LabelSettings" id="LabelSettings_71u18"]
+font = ExtResource("1_3k8ma")
+font_size = 10
+font_color = Color(0, 0, 0, 1)
+
+[node name="InGameUi" type="Control" unique_id=1169197678]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=660238732]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -648.0
+offset_right = -461.0
+offset_bottom = -594.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("CompressedTexture2D_058r7")
+region_rect = Rect2(0, 0, 24, 24)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Label" type="Label" parent="NinePatchRect" unique_id=354533038]
+layout_mode = 0
+offset_left = 7.5
+offset_top = 7.0
+offset_right = 108.0
+offset_bottom = 47.0
+text = "Bonjour le monde !"
+label_settings = SubResource("LabelSettings_71u18")
+autowrap_mode = 3

@@ -1,0 +1,161 @@
+[gd_scene format=3 uid="uid://cenfrmrefram"]
+
+[ext_resource type="Script" uid="uid://bqune26q2fh0r" path="res://src/characters/Character.cs" id="1_glpr6"]
+[ext_resource type="Texture2D" uid="uid://btsinoa3oivx" path="res://assets/sprites/Game Boy Advance - Pokemon Emerald - Playable Characters - May.png" id="2_m1b7o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rxhcr"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_conoo"]
+atlas = ExtResource("2_m1b7o")
+region = Rect2(44, 27, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxhcr"]
+atlas = ExtResource("2_m1b7o")
+region = Rect2(46, 105, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o43y5"]
+atlas = ExtResource("2_m1b7o")
+region = Rect2(44, 79, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dx8ua"]
+atlas = ExtResource("2_m1b7o")
+region = Rect2(25, 27, 16, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77sly"]
+atlas = ExtResource("2_m1b7o")
+region = Rect2(63, 27, 16, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1b7o"]
+atlas = ExtResource("2_m1b7o")
+region = Rect2(27, 104, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtrhp"]
+atlas = ExtResource("2_m1b7o")
+region = Rect2(65, 104, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psbqt"]
+atlas = ExtResource("2_m1b7o")
+region = Rect2(25, 79, 16, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5pyf"]
+atlas = ExtResource("2_m1b7o")
+region = Rect2(63, 79, 16, 22)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wa5vi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_conoo")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxhcr")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o43y5")
+}],
+"loop": true,
+"name": &"idle_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dx8ua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_conoo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77sly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_conoo")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1b7o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxhcr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtrhp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxhcr")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psbqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o43y5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5pyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o43y5")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
+[node name="Character" type="CharacterBody2D" unique_id=1095091901 node_paths=PackedStringArray("anim")]
+script = ExtResource("1_glpr6")
+anim = NodePath("AnimatedSprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1743950859]
+position = Vector2(8, -8)
+shape = SubResource("CircleShape2D_rxhcr")
+disabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1091641835]
+texture_filter = 1
+position = Vector2(8, -11)
+sprite_frames = SubResource("SpriteFrames_wa5vi")
+animation = &"walk_left"
+autoplay = "idle_down"
+frame_progress = 0.09252373
+
+[node name="rayUp" type="RayCast2D" parent="." unique_id=93860898]
+position = Vector2(8, -8)
+rotation = 3.1415927
+target_position = Vector2(0, 16)
+collide_with_areas = true
+
+[node name="rayDown" type="RayCast2D" parent="." unique_id=252713025]
+position = Vector2(8, -8)
+target_position = Vector2(0, 16)
+collide_with_areas = true
+
+[node name="rayLeft" type="RayCast2D" parent="." unique_id=183616217]
+position = Vector2(8, -8)
+rotation = 1.5707964
+target_position = Vector2(0, 16)
+collide_with_areas = true
+
+[node name="rayRight" type="RayCast2D" parent="." unique_id=1177848817]
+position = Vector2(8, -8)
+rotation = -1.5707964
+target_position = Vector2(0, 16)
+collide_with_areas = true

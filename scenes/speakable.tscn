@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b1gdeyhaql2c8"]
+
+[ext_resource type="Script" uid="uid://bplcucrvcpqku" path="res://src/components/Speakable.cs" id="1_573nd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_573nd"]
+size = Vector2(16, 16)
+
+[node name="Speakable" type="Area2D" unique_id=373989592]
+script = ExtResource("1_573nd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=52733938]
+position = Vector2(8, -8)
+shape = SubResource("RectangleShape2D_573nd")
