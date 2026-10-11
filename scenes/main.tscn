@@ -4,6 +4,29 @@
 [ext_resource type="TileSet" uid="uid://blrr1pbuuit0v" path="res://assets/tilesets/tileset.tres" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://b1gdeyhaql2c8" path="res://scenes/speakable.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://c62ye77v8f2j4" path="res://scenes/ui/inGameUi.tscn" id="4_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://cfawi31mr4bea" path="res://assets/sprites/gobou.png" id="5_tbgi4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tefeu"]
+atlas = ExtResource("5_tbgi4")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6xl0"]
+atlas = ExtResource("5_tbgi4")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tipki"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tefeu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6xl0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Main" type="Node2D" unique_id=1586453487]
 
@@ -36,15 +59,21 @@ position = Vector2(192, 128)
 
 [node name="Camera2D" type="Camera2D" parent="Character" unique_id=985460419]
 zoom = Vector2(5, 5)
-position_smoothing_enabled = true
 position_smoothing_speed = 16.0
 
 [node name="Speakable" parent="." unique_id=373989592 instance=ExtResource("3_sugp2")]
 position = Vector2(160, 112)
 
+[node name="Speakable2" parent="." unique_id=1363223296 instance=ExtResource("3_sugp2")]
+position = Vector2(48, 128)
+_text = "Gobou !!"
+
+[node name="Gobou" type="AnimatedSprite2D" parent="." unique_id=1660955382]
+texture_filter = 1
+position = Vector2(56, 119)
+sprite_frames = SubResource("SpriteFrames_tipki")
+autoplay = "default"
+frame_progress = 0.1887853
+flip_h = true
+
 [node name="InGameUi" parent="." unique_id=1169197678 instance=ExtResource("4_jyhfs")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
