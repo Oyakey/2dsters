@@ -1,22 +1,49 @@
 [gd_scene format=3 uid="uid://c62ye77v8f2j4"]
 
 [ext_resource type="FontFile" uid="uid://cygspdwf2kce7" path="res://assets/fonts/PixelifySans-Regular.ttf" id="1_3k8ma"]
+[ext_resource type="Shader" uid="uid://bg40myjdknd82" path="res://shaders/ui/ninePatchTexture.gdshader" id="1_058r7"]
+[ext_resource type="Texture2D" uid="uid://v8fce3r28ifv" path="res://assets/sprites/frame1.png" id="2_71u18"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_058r7"]
+shader = ExtResource("1_058r7")
+shader_parameter/texture_scale = 8
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_71u18"]
+texture = ExtResource("2_71u18")
+texture_margin_left = 64.0
+texture_margin_top = 64.0
+texture_margin_right = 64.0
+texture_margin_bottom = 64.0
+region_rect = Rect2(0, 0, 192, 192)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_058r7"]
 load_path = "res://.godot/imported/frame1.png-e329097b7046d436d6958b0067b52222.ctex"
 
 [sub_resource type="LabelSettings" id="LabelSettings_71u18"]
 font = ExtResource("1_3k8ma")
-font_size = 10
+font_size = 64
 font_color = Color(0, 0, 0, 1)
 
 [node name="InGameUi" type="CanvasLayer" unique_id=198538085]
 
 [node name="Container" type="PanelContainer" parent="." unique_id=884558575]
-offset_right = 291.0
-offset_bottom = 102.0
+texture_filter = 1
+material = SubResource("ShaderMaterial_058r7")
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -683.0
+offset_top = -430.0
+offset_right = 683.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_71u18")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Container" unique_id=660238732]
+visible = false
 texture_filter = 1
 layout_mode = 2
 texture = SubResource("CompressedTexture2D_058r7")
@@ -28,10 +55,6 @@ patch_margin_bottom = 8
 
 [node name="MarginContainer" type="MarginContainer" parent="Container" unique_id=648204799]
 layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
 
 [node name="Label" type="Label" parent="Container/MarginContainer" unique_id=354533038]
 layout_mode = 2

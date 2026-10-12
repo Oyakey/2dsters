@@ -58,7 +58,7 @@ z_index = 1
 position = Vector2(192, 128)
 
 [node name="Camera2D" type="Camera2D" parent="Character" unique_id=985460419]
-zoom = Vector2(5, 5)
+zoom = Vector2(8, 8)
 position_smoothing_speed = 16.0
 
 [node name="Speakable" parent="." unique_id=373989592 instance=ExtResource("3_sugp2")]
